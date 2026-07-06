@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>TME · Estratégia de Marca</title>
+<meta name="description" content="O saber que mantém tudo em movimento. A estratégia de marca da TME, para consulta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4EEE2;--chalk:#FFFCF6;--paper:#FBF9F4;--ink:#1B1A1F;--inkSoft:#2E2B2F;
+    --pebble:#6B6770;--stone:#A39E94;--line:#DED9D0;--tme:#F7A600;--tmeDeep:#C6820A;
+    --tmeSoft:#FBD98A;--tmeWash:#FDF1D6;--studio:#16151A;
+    --serif:'Instrument Serif',Georgia,serif;--sans:'Geist','Inter',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:74px;}
+  body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--paper);line-height:1.62;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-weight:400;line-height:1.08;}
+  .serif{font-family:var(--serif);}
+  .it{font-style:italic;color:var(--tme);}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--tmeDeep);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(251,249,244,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  nav .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:14px;}
+  nav .brand img{height:20px;}
+  nav .links{display:flex;gap:20px;font-size:13px;font-weight:400;color:var(--pebble);}
+  nav .links a{text-decoration:none;transition:color .2s;white-space:nowrap;}
+  nav .links a:hover,nav .links a.active{color:var(--tmeDeep);}
+  nav .links a.active{font-weight:500;}
+  .menuBtn{display:none;background:none;border:none;font-size:22px;color:var(--ink);cursor:pointer;}
+  section{padding:92px 0;border-bottom:1px solid var(--line);}
+  section.dark{background:var(--studio);color:var(--cream);border-bottom:none;}
+  section.dark .eyebrow{color:var(--tmeSoft);}
+  .lead{font-size:19px;color:var(--inkSoft);max-width:66ch;}
+  .dark .lead{color:#D8D2C7;}
+  h2.title{font-family:var(--serif);font-size:clamp(32px,5vw,52px);margin:14px 0 20px;}
+  .dark h2.title{color:var(--chalk);}
+  .sec-head{margin-bottom:34px;}
+  .mt{margin-top:40px;}
+  .mt-s{margin-top:22px;}
+  .subhead{font-family:var(--sans);font-weight:600;font-size:15px;letter-spacing:.02em;color:var(--tmeDeep);margin:34px 0 14px;text-transform:uppercase;letter-spacing:.08em;}
+  .dark .subhead{color:var(--tmeSoft);}
+  /* hero */
+  .hero{min-height:100vh;background:var(--studio);color:var(--cream);display:flex;flex-direction:column;justify-content:center;border-bottom:none;padding:120px 0 80px;}
+  .hero .eyebrow{color:var(--tmeSoft);}
+  .hero h1{font-family:var(--serif);font-size:clamp(44px,8vw,104px);letter-spacing:.5px;margin:20px 0 28px;max-width:16ch;}
+  .hero .sub{font-size:18px;color:#B9B3A8;max-width:54ch;}
+  .hero .scroll{margin-top:60px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);}
+  /* grid + cards */
+  .grid{display:grid;gap:18px;}
+  .g2{grid-template-columns:repeat(2,1fr);}
+  .g3{grid-template-columns:repeat(3,1fr);}
+  .g4{grid-template-columns:repeat(4,1fr);}
+  .card{background:var(--chalk);border:1px solid var(--line);border-radius:16px;padding:24px;}
+  .dark .card{background:#211F26;border-color:#332F39;}
+  .card h3{font-family:var(--sans);font-weight:600;font-size:18px;margin-bottom:8px;}
+  .card .n{font-family:var(--serif);font-size:30px;color:var(--tme);line-height:1;margin-bottom:6px;}
+  .card p{font-size:14.5px;color:var(--pebble);}
+  .dark .card p{color:#B9B3A8;}
+  .statement{font-family:var(--serif);font-size:clamp(26px,4.2vw,44px);line-height:1.15;max-width:22ch;}
+  .quotebox{background:var(--tmeWash);border:1px solid var(--tmeSoft);border-radius:16px;padding:28px 32px;}
+  .mapfig{width:100%;max-width:820px;margin:24px auto 0;display:block;border:1px solid var(--line);border-radius:14px;background:var(--paper);}
+  /* competitor rows */
+  .comprow{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;}
+  .comprow b{font-weight:600;}
+  .comprow span{color:var(--pebble);}
+  /* def list (tom por contexto, faz/nunca meta) */
+  .deflist{display:grid;gap:0;}
+  .deflist .row{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;}
+  .deflist .row .k{font-weight:600;color:var(--tmeDeep);}
+  .deflist .row .t{color:var(--inkSoft);}
+  .dark .deflist .row{border-color:#332F39;}
+  .dark .deflist .row .k{color:var(--tmeSoft);}
+  .dark .deflist .row .t{color:#D8D2C7;}
+  /* pills */
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .pill{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--tmeWash);border:1px solid var(--tmeSoft);color:var(--tmeDeep);}
+  .pill.no{background:#F1EEE8;border-color:var(--line);color:var(--pebble);text-decoration:line-through;text-decoration-color:var(--stone);}
+  /* persona */
+  .persona{background:var(--chalk);border:1px solid var(--line);border-radius:18px;padding:26px 28px;margin-bottom:18px;}
+  .persona .ptag{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--tmeDeep);font-weight:600;}
+  .persona h3{font-family:var(--serif);font-size:30px;margin:4px 0 6px;}
+  .persona .pdesc{font-size:15px;color:var(--inkSoft);max-width:70ch;}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+  .pgrid .lab{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--pebble);margin-bottom:8px;}
+  .pgrid ul{list-style:none;}
+  .pgrid li{font-size:14px;color:var(--inkSoft);padding:3px 0 3px 16px;position:relative;}
+  .pgrid li::before{content:"";position:absolute;left:0;top:11px;width:5px;height:5px;border-radius:50%;background:var(--tme);}
+  .pmeta{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--inkSoft);}
+  .pmeta b{color:var(--ink);font-weight:600;}
+  /* numbered list */
+  .numlist{counter-reset:n;}
+  .numlist .item{display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);}
+  .numlist .item .num{font-family:var(--serif);font-size:26px;color:var(--tme);line-height:1;min-width:34px;}
+  .numlist .item h4{font-family:var(--sans);font-weight:600;font-size:16px;margin-bottom:3px;}
+  .numlist .item p{font-size:14.5px;color:var(--pebble);}
+  /* manifesto */
+  .manifesto{background:#211F26;border:1px solid #332F39;border-radius:18px;padding:34px 36px;margin-bottom:18px;}
+  .manifesto .mkind{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--tmeSoft);font-weight:600;}
+  .manifesto p{color:#D8D2C7;font-size:15.5px;margin-top:14px;max-width:76ch;}
+  .manifesto .anchor{font-family:var(--serif);font-style:italic;color:var(--cream);font-size:19px;margin-top:18px;}
+  .fam{font-size:13.5px;color:var(--pebble);margin-top:10px;line-height:1.9;}
+  .fam b{color:var(--inkSoft);font-weight:500;}
+  @media(max-width:860px){
+    .g2,.g3,.g4,.pgrid,.deflist .row{grid-template-columns:1fr;}
+    .deflist .row{gap:2px;}
+    nav .links{display:none;position:absolute;top:62px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:6px 0;max-height:70vh;overflow:auto;}
+    nav .links.open{display:flex;}
+    nav .links a{padding:12px 32px;}
+    .menuBtn{display:block;}
+    section{padding:60px 0;}
+    .wrap{padding:0 22px;}
+  }
+  .dark .card h3{color:var(--chalk);}
+  .dark .pgrid li{color:#D8D2C7;}
+  .dark .pgrid .lab{color:var(--stone);}
+  .dark .pmeta{color:#D8D2C7;}
+  .dark .persona .pdesc{color:#D8D2C7;}
+  .dark .numlist .item h4{color:var(--chalk);}
+  .dark .numlist .item p{color:#B9B3A8;}
+  .dark .numlist .item{border-color:#332F39;}
+  .card details{margin-top:12px;}
+  .card summary{cursor:pointer;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--tmeSoft);font-weight:600;list-style:none;}
+  .card summary::-webkit-details-marker{display:none;}
+  .card summary::after{content:" +";}
+  .card details[open] summary::after{content:" \2013";}
+  .vlist{margin-top:10px;}
+  .vlist .lab{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--stone);margin:10px 0 4px;}
+  .vlist ul{list-style:none;}
+  .vlist li{font-size:13px;color:#B9B3A8;padding:2px 0 2px 14px;position:relative;}
+  .vlist li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--tmeDeep);}
+  .vlist li.no{color:var(--pebble);}
+  .vlist li.no::before{background:var(--stone);}
+  .checklist{list-style:none;margin-top:10px;}
+  .checklist li{font-size:14.5px;color:var(--inkSoft);padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line);}
+  .checklist li::before{content:"\2713";position:absolute;left:2px;top:9px;color:var(--tmeDeep);font-weight:700;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand"><img src="assets/tme_logo.png" alt="TME"><span>· Estratégia</span></div>
+    <button class="menuBtn" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('open')">≡</button>
+    <div class="links" id="links">
+      <a href="#contexto">Contexto</a>
+      <a href="#posicionamento">Posicionamento</a>
+      <a href="#fundacao">Fundação</a>
+      <a href="#valores">Valores</a>
+      <a href="#arquitetura">Arquitetura</a>
+      <a href="#personas">Personas</a>
+      <a href="#voz">Voz</a>
+      <a href="#mensagens">Mensagens</a>
+      <a href="#manifestos">Manifestos</a>
+      <a href="#ativacao">Ativação</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="topo">
+  <div class="wrap">
+    <div class="eyebrow">itMatters × TME · Estratégia de Marca</div>
+    <h1>O <span class="it">saber</span> que mantém tudo em movimento.</h1>
+    <p class="sub">A fundação da marca TME, reunida para consulta. Desde 1956 ao lado de quem produz, constrói e embala.</p>
+    <div class="scroll">Percorra ↓</div>
+  </div>
+</header>
+
+<section id="contexto">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">01 · O contexto</div>
+      <h2 class="title">O ponto de partida</h2>
+      <p class="lead">A TME importa, transforma e comercializa fitas e espumas autoadesivas técnicas desde 1956, e serve atualmente cerca de mil clientes B2B em Portugal. A maior parte do que comercializa é adquirida a fabricantes e transformada internamente, não produzida de raiz.</p>
+    </div>
+    <div class="grid g2">
+      <div class="card"><h3>Quem é a TME</h3><p>Desde 1956 a servir a indústria. Importa, transforma e corta à medida. Cerca de mil clientes B2B. Uma equipa técnica que trabalha no terreno.</p></div>
+      <div class="card"><h3>O desafio</h3><p>Uma marca pouco visível online, com um site desatualizado e uma perceção herdada de fornecedor caro. A compra mudou: começa no Google e nos assistentes de inteligência artificial.</p></div>
+    </div>
+    <div class="quotebox mt">
+      <div class="eyebrow" style="margin-bottom:10px;">A conclusão central</div>
+      <p class="statement">O que distingue a TME não é o produto. É a <span class="it">própria TME</span>.</p>
+      <p style="margin-top:14px;color:var(--inkSoft);font-size:15.5px;max-width:62ch;">O aconselhamento técnico, a fiabilidade, a disponibilidade de stock e a proximidade de uma equipa que conhece o terreno em que os clientes operam.</p>
+    </div>
+    <div class="subhead">A leitura da concorrência</div>
+    <p style="font-size:15px;color:var(--inkSoft);max-width:66ch;margin-bottom:8px;">Nenhuma referência do mercado reúne, em simultâneo, aconselhamento técnico próximo, forte disponibilidade de stock e entregas rápidas em todo o país.</p>
+    <div class="comprow"><b>O2A · Sicorel</b><span>Premium, competem por escala e produção, distantes do cliente.</span></div>
+    <div class="comprow"><b>Rigo</b><span>Posicionada pelo preço, sem competência técnica em adesivos.</span></div>
+    <div class="comprow"><b>Embalcer</b><span>Nicho de cintas plásticas, um só setor.</span></div>
+    <div class="comprow"><b>Eurocel</b><span>Marca italiana com gama larga, mas pouca presença e proximidade em Portugal.</span></div>
+    <p style="margin-top:16px;font-size:15px;color:var(--tmeDeep);font-weight:500;">A TME é a única que combina amplitude e proximidade, com transformação à medida e disponibilidade de stock.</p>
+  </div>
+</section>
+
+<section id="posicionamento" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">01 · O contexto</div>
+      <h2 class="title">O mapa de posicionamento</h2>
+      <p class="lead">O território define-se por dois eixos: a forma como a TME serve o cliente e a amplitude da gama. O quadrante do parceiro técnico com gama larga está por ocupar. É onde a TME já opera na prática, e cabe à marca torná-lo visível.</p>
+    </div>
+    <img class="mapfig" src="assets/posmap.png" alt="Mapa de posicionamento da TME">
+    <p class="serif" style="text-align:center;font-size:24px;color:var(--tmeSoft);margin-top:28px;">A TME já vive no canto certo. Falta torná-lo <span style="font-style:italic">visível</span>.</p>
+  </div>
+</section>
+
+<section id="fundacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">02 · A fundação</div>
+      <h2 class="title">O núcleo da marca</h2>
+      <p class="lead">A essência é a verdade central de onde tudo o resto decorre. É o único elemento da estratégia que pode chegar ao cliente tal como está, sob a forma de assinatura.</p>
+    </div>
+    <div class="quotebox">
+      <div class="eyebrow" style="margin-bottom:12px;">A essência</div>
+      <p class="statement">O <span class="it">saber</span> que mantém tudo em movimento.</p>
+    </div>
+    <div class="grid g2 mt">
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:8px;">O propósito</div>
+        <p class="serif" style="font-size:26px;line-height:1.2;">Existimos para que <span class="it">ninguém pare</span>.</p>
+        <p style="margin-top:12px;font-size:14.5px;color:var(--pebble);">Transformamos a incerteza de uma escolha técnica na confiança de ter sempre a solução adesiva certa e alguém em quem confiar, ao lado de quem produz, constrói e embala.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:8px;">A missão</div>
+        <p style="font-size:15px;color:var(--inkSoft);">Aconselhar cada cliente e encontrar a solução adesiva tecnicamente certa, transformada à medida e entregue de forma atempada, com uma equipa técnica no terreno e uma presença digital crescente, para que nenhuma linha pare, nenhuma obra atrase e nenhuma encomenda chegue danificada.</p>
+      </div>
+    </div>
+
+    <div class="subhead">A visão, em três degraus</div>
+    <div class="grid g3">
+      <div class="card"><div class="n">1 ano</div><h3>Ser visível</h3><p>A especialidade encontra-nos online, e a perceção de fornecedor caro começa a corrigir-se.</p></div>
+      <div class="card"><div class="n">5 anos</div><h3>Ser referência</h3><p>A referência nacional de confiança em soluções adesivas técnicas, escolhida pelo aconselhamento e pela fiabilidade.</p></div>
+      <div class="card"><div class="n">10 anos</div><h3>Ser o padrão</h3><p>O nome que mantém a indústria em movimento, de forma sustentável.</p></div>
+    </div>
+
+    <div class="subhead">O arquétipo e a personalidade</div>
+    <div class="grid g2">
+      <div class="card"><h3>Sábio</h3><p>Aconselha. Explica o porquê antes do quê. Encontra a solução certa e antecipa o problema. Ensina, mas nunca dá lições nem faz o cliente sentir-se ignorante.</p></div>
+      <div class="card"><h3>Cuidador</h3><p>Garante. Ninguém fica parado à espera. Protege o compromisso que o cliente assumiu com o cliente dele. Serve, mas não se submete nem diz sim a tudo.</p></div>
+    </div>
+    <p class="serif" style="font-size:22px;margin-top:18px;color:var(--inkSoft);">Sábio e Cuidador: o especialista de <span class="it">confiança</span>. Sério mas humano, próximo mas profissional, claro e direto.</p>
+
+    <div class="subhead">O que nos distingue</div>
+    <div class="numlist">
+      <div class="item"><div class="num">1</div><div><h4>Aconselhamento que antecipa</h4><p>Resolve problemas em vez de tirar pedidos. A prova é o diagnóstico técnico logo na primeira visita.</p></div></div>
+      <div class="item"><div class="num">2</div><div><h4>Continuidade</h4><p>Forte disponibilidade de stock e entregas rápidas, face a fornecedores que rompem ou demoram.</p></div></div>
+      <div class="item"><div class="num">3</div><div><h4>Proximidade no terreno</h4><p>Pessoas que vão à fábrica e à obra, ao contrário dos operadores online sem rosto.</p></div></div>
+      <div class="item"><div class="num">4</div><div><h4>Gama transversal e à medida</h4><p>Vários setores e transformação própria, onde os nichos e os generalistas sem técnica não chegam.</p></div></div>
+    </div>
+
+    <div class="subhead">Os pilares estratégicos</div>
+    <div class="grid g2">
+      <div class="card"><h3>Aconselhamento técnico</h3><p>Investir no saber e em quem aconselha: formação, fichas e diagnóstico padronizado.</p></div>
+      <div class="card"><h3>Fiabilidade que protege o compromisso</h3><p>Gerir stock e prazos como promessa, com alertas proativos de rutura.</p></div>
+      <div class="card"><h3>Proximidade que antecipa</h3><p>Estar no terreno e prever a próxima necessidade.</p></div>
+      <div class="card"><h3>Gama transversal e experiência em evolução</h3><p>Manter a amplitude e a transformação como vantagem. Setenta anos ao serviço de hoje, modernizando os canais, não a alma.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="valores" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">02 · A fundação</div>
+      <h2 class="title">Os valores</h2>
+      <p class="lead">Seis princípios orientam as decisões e moldam a cultura.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card"><h3>Domínio Técnico</h3><p>Saber profundo em soluções adesivas que permite aconselhar cada cliente com autoridade e precisão.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Formação técnica contínua da equipa</li><li>Diagnóstico rigoroso antes de recomendar</li><li>Respostas com clareza e fundamentação</li></ul><div class="lab">O que não é</div><ul><li class="no">Recomendar sem compreender a aplicação</li><li class="no">Fingir especialidade onde falta conhecimento</li></ul></div></details></div>
+      <div class="card"><h3>Serviço</h3><p>Resolver o problema do cliente acima da venda, com proximidade, disponibilidade e proatividade.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Equipa no terreno para diagnóstico presencial</li><li>Resposta rápida a urgências</li><li>Antecipar necessidades antes da rutura</li></ul><div class="lab">O que não é</div><ul><li class="no">Focar só no fecho da venda</li><li class="no">Desaparecer após a entrega</li></ul></div></details></div>
+      <div class="card"><h3>Fiabilidade</h3><p>Cumprir compromissos, com stock, prazos e entregas, para que a produção nunca pare por falha nossa.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Stock adequado dos produtos mais críticos</li><li>Comunicar alterações de prazo proativamente</li><li>Contingência para urgências</li></ul><div class="lab">O que não é</div><ul><li class="no">Prometer prazos irrealistas</li><li class="no">Deixar o cliente sem resposta</li></ul></div></details></div>
+      <div class="card"><h3>Integridade</h3><p>Verdade e transparência em tudo, incluindo o preço justificado, com coerência entre promessa e entrega.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Comunicar limitações mesmo comprometendo a venda</li><li>Preços transparentes e justificados</li><li>Admitir erros e corrigi-los</li></ul><div class="lab">O que não é</div><ul><li class="no">Exagerar capacidades para vender</li><li class="no">Ocultar prazos ou custos</li></ul></div></details></div>
+      <div class="card"><h3>Evolução</h3><p>A recusa de nos acomodarmos, enquanto empresa e enquanto pessoas, sem perder o que nos torna de confiança.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Modernizar serviço, processos e digital</li><li>Transformar o feedback do terreno em melhorias</li><li>Desenvolver cada colaborador</li></ul><div class="lab">O que não é</div><ul><li class="no">«Sempre se fez assim»</li><li class="no">Usar a herança como desculpa para não mudar</li></ul></div></details></div>
+      <div class="card"><h3>Sustentabilidade</h3><p>Responsabilidade ambiental, social e de gestão assumida com honestidade, sem vender como verde o que ainda não é.</p><details><summary>Como se vê</summary><div class="vlist"><div class="lab">Assim se vê</div><ul><li>Valorizar produtos que reduzem consumo e desperdício</li><li>Sinalizar soluções com material reciclado</li><li>Ajudar o cliente a cumprir os seus selos</li></ul><div class="lab">O que não é</div><ul><li class="no">Apropriar-se de «verde» que não praticamos</li><li class="no">Usar o chavão sem prova</li></ul></div></details></div>
+    </div>
+  </div>
+</section>
+
+<section id="arquitetura">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">03 · A arquitetura</div>
+      <h2 class="title">As quatro funções</h2>
+      <p class="lead">A oferta organiza-se por função, ou seja, pelo trabalho que o cliente precisa de resolver, tendo o setor como porta de entrada. Cada família pertence a uma única função.</p>
+    </div>
+    <div class="grid g4">
+      <div class="card"><div class="n">01</div><h3>Embalagem</h3><p>Conter e apresentar.</p><div class="fam"><b>A01</b> Fitas de embalagem<br><b>A04</b> Filme estirável<br><b>A05</b> Diversos de embalagem<br><b>A06</b> Equipamento e máquinas</div></div>
+      <div class="card"><div class="n">02</div><h3>Proteção</h3><p>Amortecer e preservar.</p><div class="fam"><b>A02</b> Fitas de pintura / masking<br><b>B04</b> Separadores (vidros e caixilharias)<br><b>B02</b> Diversos Proteção</div></div>
+      <div class="card"><div class="n">03</div><h3>Isolamento e Vedação</h3><p>Selar e isolar.</p><div class="fam"><b>A03</b> AVAC e isolamento<br><b>B05</b> Espumas (uma face)<br><b>B03</b> Selagem e Emendas</div></div>
+      <div class="card"><div class="n">04</div><h3>Fixação</h3><p>Unir e segurar.</p><div class="fam"><b>B01</b> Fitas (dupla face)<br><b>B06</b> Espumas (dupla face)<br><b>B07</b> Massas Acrílicas<br><b>B08</b> Diversos Fixação</div></div>
+    </div>
+    <p style="margin-top:18px;font-size:14px;color:var(--pebble);">As espumas classificam-se pelo número de faces adesivas: uma face para Isolamento e Vedação, duas faces para Fixação. A navegação faz-se por função e os catálogos comerciais por setor.</p>
+  </div>
+</section>
+
+<section id="personas" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">04 · As personas</div>
+      <h2 class="title">A unidade de decisão</h2>
+      <p class="lead">As personas não são públicos separados, mas os elementos da unidade de decisão de uma venda B2B. A marca dirige-se aos três de formas distintas.</p>
+    </div>
+
+    <div class="persona" style="background:#211F26;border-color:#332F39;">
+      <div class="ptag" style="color:var(--tmeSoft)">O decisor</div>
+      <h3 style="color:var(--chalk)">Comprador Pragmático</h3>
+      <p class="pdesc" style="color:#D8D2C7">Responsável de compras de empresas industriais médias. É avaliado pelo custo, mas decide por desempenho fiável. Pesquisa no Google e em IA antes de contactar.</p>
+      <div class="pgrid">
+        <div><div class="lab" style="color:var(--stone)">Pontos de dor</div><ul><li>Falta de suporte técnico dos fornecedores atuais</li><li>Rutura de stock no pior momento</li><li>Atrasos que param a produção</li><li>Dificuldade em encontrar especificações precisas</li></ul></div>
+        <div><div class="lab" style="color:var(--stone)">Desejos</div><ul><li>Um parceiro que antecipe e sugira soluções</li><li>Um consultor técnico dedicado</li><li>Transparência sobre stock e prazos</li><li>Nunca parar nem ficar mal perante o cliente final</li></ul></div>
+      </div>
+      <div class="pmeta" style="border-color:#332F39;color:#D8D2C7"><b style="color:var(--chalk)">A mensagem foca:</b> continuidade e fiabilidade, resposta rápida quando pára, resultados e não promessas. <b style="color:var(--chalk)">Tom:</b> direto, orientado a resultados.</div>
+    </div>
+
+    <div class="persona" style="background:#211F26;border-color:#332F39;">
+      <div class="ptag" style="color:var(--tmeSoft)">O canal</div>
+      <h3 style="color:var(--chalk)">Distribuidor Especializado</h3>
+      <p class="pdesc" style="color:#D8D2C7">Lojas de construção, tintas e ferramentas, com força no interior. Dá escala à TME. Vive da margem e da relação, e teme ser contornado.</p>
+      <div class="pgrid">
+        <div><div class="lab" style="color:var(--stone)">Pontos de dor</div><ul><li>Medo de que o cliente compre direto</li><li>Margem apertada e pressão de preço</li><li>Ruturas que o deixam mal perante o cliente</li><li>Diferenciar-se de lojas com a mesma oferta</li></ul></div>
+        <div><div class="lab" style="color:var(--stone)">Desejos</div><ul><li>Um fornecedor que o ajude a cumprir</li><li>Marca própria que fideliza o cliente</li><li>Boas condições: margem, rappel, prazos</li><li>Apoio técnico e formação para vender melhor</li></ul></div>
+      </div>
+      <div class="pmeta" style="border-color:#332F39;color:#D8D2C7"><b style="color:var(--chalk)">A mensagem foca:</b> respeito pelo canal, margem e território, formação para vender melhor. <b style="color:var(--chalk)">Tom:</b> parceria de longo prazo, nunca linguagem de quem contorna.</div>
+    </div>
+
+    <div class="persona" style="background:#211F26;border-color:#332F39;margin-bottom:0;">
+      <div class="ptag" style="color:var(--tmeSoft)">O guardião da retenção</div>
+      <h3 style="color:var(--chalk)">Aplicador</h3>
+      <p class="pdesc" style="color:#D8D2C7">Quem usa o produto no terreno, seja o operador, o instalador ou o chefe de produção. Não decide a compra, mas se disser que não funciona, a recompra deixa de acontecer.</p>
+      <div class="pgrid">
+        <div><div class="lab" style="color:var(--stone)">Pontos de dor</div><ul><li>Produtos que falham e obrigam a refazer</li><li>Difíceis de aplicar ou inconsistentes</li><li>Falta de instruções e apoio</li><li>Ninguém lhe pergunta a opinião</li></ul></div>
+        <div><div class="lab" style="color:var(--stone)">Desejos</div><ul><li>Produto que funciona à primeira</li><li>Vídeos e instruções claros</li><li>Amostras para testar</li><li>Ser ouvido, porque a sua experiência conta</li></ul></div>
+      </div>
+      <div class="pmeta" style="border-color:#332F39;color:#D8D2C7"><b style="color:var(--chalk)">A mensagem foca:</b> funciona à primeira, a sua experiência é ouvida, amostras e vídeos. <b style="color:var(--chalk)">Tom:</b> respeitoso, sem condescendência.</div>
+    </div>
+  </div>
+</section>
+
+<section id="voz">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">05 · A voz</div>
+      <h2 class="title">Como a TME soa</h2>
+      <p class="lead">A voz não é nova. É a estratégia a falar, e nasce do arquétipo Sábio e Cuidador. A regra de ouro é simples: ensina sem arrogância e serve sem subserviência.</p>
+    </div>
+
+    <div class="quotebox">
+      <div class="eyebrow" style="margin-bottom:10px;">A persona da voz</div>
+      <p class="serif" style="font-size:24px;line-height:1.3;color:var(--inkSoft);">Um consultor técnico veterano da indústria. Fala claro, resolve rápido, conhece cada linha de produção. Nunca deixa ninguém parado.</p>
+      <p style="font-size:14px;color:var(--pebble);margin-top:12px;">É a marca personificada, não uma pessoa da equipa. A fasquia é alta, o tom é humano.</p>
+    </div>
+
+    <div class="subhead">O registo</div>
+    <div class="deflist">
+      <div class="row"><div class="k">Tom</div><div class="t">Sério e focado, mas humano.</div></div>
+      <div class="row"><div class="k">Estilo</div><div class="t">Profissional mas acessível, com autoridade sem distância.</div></div>
+      <div class="row"><div class="k">Frase</div><div class="t">Direta e curta, sem enchimento.</div></div>
+      <div class="row"><div class="k">Energia</div><div class="t">Empenhada e positiva, sem exageros.</div></div>
+      <div class="row"><div class="k">Amplitude</div><div class="t">Da confiança tranquila à urgência controlada, nunca ansiedade nem indiferença.</div></div>
+    </div>
+
+    <div class="grid g2 mt">
+      <div class="card">
+        <div class="eyebrow" style="margin-bottom:10px;">O que faz</div>
+        <p style="font-size:14.5px;color:var(--inkSoft);">Usa verbos de ação imediata. Quantifica prazos e cumpre-os. Nomeia aplicações concretas. Oferece alternativas técnicas fundamentadas. Confirma o entendimento antes de avançar.</p>
+      </div>
+      <div class="card">
+        <div class="eyebrow" style="color:var(--pebble);margin-bottom:10px;">O que nunca faz</div>
+        <p style="font-size:14.5px;color:var(--pebble);">Superlativos de marketing. Explicações que se alongam. Promessas que não pode garantir. Ignorar a urgência. Tratar o cliente como uma transação única.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Vocabulário</div>
+    <div style="font-size:13px;font-weight:600;color:var(--tmeDeep);letter-spacing:.04em;">USAR</div>
+    <div class="pills">
+      <span class="pill">aplicação</span><span class="pill">especificação</span><span class="pill">disponibilidade</span><span class="pill">desempenho</span><span class="pill">entrega</span><span class="pill">aconselhamento</span><span class="pill">continuidade</span><span class="pill">fiabilidade</span><span class="pill">prontidão</span>
+    </div>
+    <div style="font-size:13px;font-weight:600;color:var(--pebble);letter-spacing:.04em;margin-top:18px;">EVITAR</div>
+    <div class="pills">
+      <span class="pill no">revolucionário</span><span class="pill no">disruptivo</span><span class="pill no">o melhor</span><span class="pill no">único no mercado</span><span class="pill no">solução mágica</span><span class="pill no">excelência absoluta</span><span class="pill no">superioridade técnica</span>
+    </div>
+    <p style="margin-top:14px;font-size:14.5px;color:var(--pebble);max-width:64ch;">O comprador industrial desconfia do exagero. A autoridade ganha-se com o concreto, não com adjetivos.</p>
+
+    <div class="subhead">O tom por contexto</div>
+    <div class="deflist">
+      <div class="row"><div class="k">Site</div><div class="t">Cada página como aconselhamento. Antecipa a dúvida, especifica com autoridade, sem jargão.</div></div>
+      <div class="row"><div class="k">Comercial</div><div class="t">Conselheiro que escuta o desafio e propõe a solução comprovada. Quantifica e dá alternativas, sem pressão.</div></div>
+      <div class="row"><div class="k">LinkedIn</div><div class="t">Educa com casos e dados concretos, como paragens evitadas. Sem superlativos vazios.</div></div>
+      <div class="row"><div class="k">Email</div><div class="t">Assunto que diz o valor, informação clara, contacto direto na assinatura.</div></div>
+      <div class="row"><div class="k">Crise</div><div class="t">Calmo, assume a responsabilidade, apresenta a ação e o prazo. A urgência está na resposta, não no tom.</div></div>
+      <div class="row"><div class="k">Pós-venda</div><div class="t">Consultor atento que resolve com conhecimento e rapidez, focado na solução.</div></div>
+    </div>
+
+    <div class="subhead">Regras de escrita, antes de publicar</div>
+    <ul class="checklist">
+      <li>Português europeu (ecrã, utilizador, ficheiro), sem brasileirismos.</li>
+      <li>Cada mensagem reflete pelo menos um valor.</li>
+      <li>Toda a alegação de desempenho é comprovável, com fonte e data.</li>
+      <li>Verbos de ação e voz ativa. Frases curtas, sem exclamações múltiplas.</li>
+      <li>Stock e entrega: «forte disponibilidade» e «entregas rápidas, com prontidão», sem prazos fixos que não se possam garantir. Nunca «permanente», «garantido» ou «sempre disponível».</li>
+      <li>Setenta anos desde 1956, nunca «quase 70 anos».</li>
+      <li>A essência usa «saber», não «conhecimento».</li>
+      <li>Nunca «white-label». Dizer «transformação à medida» ou «marca do cliente».</li>
+      <li>Chamadas à ação claras, sem linguagem que pressione.</li>
+    </ul>
+    <div class="quotebox mt" style="background:var(--studio);border-color:#332F39;">
+      <div class="eyebrow" style="color:var(--tmeSoft);margin-bottom:10px;">O reframe do preço</div>
+      <p class="serif" style="font-size:clamp(24px,3.4vw,34px);line-height:1.2;color:var(--cream);max-width:24ch;">Uma hora parada custa mais do que a diferença de preço.</p>
+      <p style="margin-top:14px;color:#B9B3A8;font-size:15px;max-width:62ch;">A TME não compete no mais barato, compete no custo da paragem. O serviço mostra-se antes da relação, com diagnóstico na primeira visita, casos e amostras com QR.</p>
+    </div>
+  </div>
+</section>
+
+<section id="mensagens">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">05 · As mensagens</div>
+      <h2 class="title">O que a TME diz</h2>
+    </div>
+    <div class="quotebox">
+      <div class="eyebrow" style="margin-bottom:10px;">A mensagem central</div>
+      <p style="font-size:18px;color:var(--inkSoft);max-width:74ch;">A TME transforma soluções adesivas técnicas em certezas para a indústria portuguesa. Com 70 anos de experiência e aconselhamento no terreno, é o parceiro que domina a técnica, entrega com fiabilidade e está ao lado de quem produz, quando a produção não pode parar.</p>
+      <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:24px;">
+        <div style="flex:1;min-width:240px;"><div class="lab" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--tmeDeep);margin-bottom:4px;">Gancho</div><p class="serif" style="font-size:20px;color:var(--ink);">A sua produção não pode esperar por dúvidas ou atrasos.</p></div>
+        <div style="flex:1;min-width:240px;"><div class="lab" style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--tmeDeep);margin-bottom:4px;">Apelo à ação</div><p class="serif" style="font-size:20px;color:var(--ink);">Diga-nos o desafio. Encontramos a solução que mantém a sua operação em movimento.</p></div>
+      </div>
+    </div>
+
+    <div class="subhead">Três variações por público</div>
+    <div class="grid g3">
+      <div class="card"><div class="eyebrow" style="margin-bottom:8px;">Comprador</div><p style="font-size:14.5px;color:var(--inkSoft);font-style:italic;">A sua linha não pode parar por falta de material. Com a TME, tem aconselhamento técnico, forte disponibilidade de stock e entregas rápidas.</p></div>
+      <div class="card"><div class="eyebrow" style="margin-bottom:8px;">Distribuidor</div><p style="font-size:14.5px;color:var(--inkSoft);font-style:italic;">O fornecedor que fortalece o seu negócio e nunca o contorna: condições justas, reposição fiável, formação e apoio na venda. Crescemos juntos.</p></div>
+      <div class="card"><div class="eyebrow" style="margin-bottom:8px;">Aplicador</div><p style="font-size:14.5px;color:var(--inkSoft);font-style:italic;">Produtos que funcionam à primeira e são fáceis de aplicar. Instruções claras, amostras para testar, e alguém que ouve a sua experiência no terreno.</p></div>
+    </div>
+
+    <div class="subhead">Os pilares de mensagem</div>
+    <div class="numlist">
+      <div class="item"><div class="num">1</div><div><h4>Aconselhamento técnico no terreno</h4><p>Não vendemos apenas produtos. Entregamos conhecimento, com equipas que visitam as instalações e transformam desafios complexos em soluções certas à primeira.</p></div></div>
+      <div class="item"><div class="num">2</div><div><h4>Fiabilidade que mantém a produção</h4><p>Forte disponibilidade dos produtos mais críticos e entregas rápidas, porque cada hora parada custa dinheiro e reputação.</p></div></div>
+      <div class="item"><div class="num">3</div><div><h4>Parceiro da continuidade industrial</h4><p>Existimos para que a indústria produza sem interrupções por falhas adesivas. Somos o elo invisível que mantém as cadeias em movimento.</p></div></div>
+      <div class="item"><div class="num">4</div><div><h4>Proximidade e resposta imediata</h4><p>Quando surge uma dúvida ou uma urgência na linha, a TME responde com a rapidez que a situação exige. Proximidade não é um slogan.</p></div></div>
+      <div class="item"><div class="num">5</div><div><h4>Evolução sem perder a essência</h4><p>Modernizamo-nos continuamente, sem perder o que nos torna de confiança. A energia da nova geração ancorada em 70 anos.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="manifestos" class="dark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">05 · A voz</div>
+      <h2 class="title">Os manifestos</h2>
+      <p class="lead">A mesma verdade em três registos: para a equipa, para os clientes e para a indústria.</p>
+    </div>
+
+    <div class="manifesto">
+      <div class="mkind">Interno · equipa</div>
+      <p>Somos a TME porque sabemos. Sabemos que por trás de cada linha de produção há pessoas que não podem falhar, prazos que têm de ser cumpridos, compromissos que pesam. E é por isso que estamos aqui, não para vender fita adesiva, mas para garantir que nada pára.</p>
+      <p>O nosso saber não vem de catálogos. Vem de 70 anos no terreno, de conversas técnicas, de problemas resolvidos às 17h30 de sexta-feira, de entregas que chegaram a tempo. Vem de cada um de nós, da experiência que partilhamos, da atitude que trazemos e da vontade de resolver que nos move.</p>
+      <p>Não somos os maiores, mas somos os que percebem. Os que atendem. Os que entregam. Os que ficam até encontrar a solução certa. Evoluímos todos os dias, como empresa e como pessoas, sem perder a alma. Juntos, mantemos a indústria portuguesa em movimento. Não com promessas, mas com presença, competência e compromisso.</p>
+      <p class="anchor">Não somos os maiores, mas somos os que percebem, atendem, entregam e ficam até resolver.</p>
+    </div>
+
+    <div class="manifesto">
+      <div class="mkind">Externo · clientes</div>
+      <p>A sua produção não pode parar. A sua obra não pode atrasar. A sua encomenda não pode chegar danificada. E é por isso que a TME existe.</p>
+      <p>Há 70 anos que transformamos soluções adesivas técnicas em certezas para a indústria portuguesa. Não vendemos produtos. Entregamos tranquilidade. Porque quando nos escolhe, escolhe alguém que domina a técnica, aconselha com autoridade e cumpre o prometido.</p>
+      <p>Cada aplicação é diferente. Cada desafio é único. Por isso não oferecemos respostas genéricas. Ouvimos, analisamos e recomendamos a solução tecnicamente certa, transformada à sua medida e entregue com prontidão. A TME é esse parceiro. Mais pelo saber do que pela dimensão. Mais pela capacidade de resolver do que pelo catálogo.</p>
+      <p class="anchor">Não vendemos produtos. Entregamos tranquilidade. Porque quando nos escolhe, escolhe quem domina, aconselha e cumpre.</p>
+    </div>
+
+    <div class="manifesto" style="margin-bottom:0;">
+      <div class="mkind">Institucional · missão</div>
+      <p>A indústria portuguesa move-se sobre milhares de decisões técnicas invisíveis. Uma delas, aparentemente simples e muitas vezes subestimada, é a escolha da solução adesiva certa. Quando falha, linhas param, obras atrasam, encomendas chegam danificadas e custos disparam.</p>
+      <p>A TME existe para transformar essa escolha numa certeza. Durante 70 anos, construímos algo raro: autoridade técnica combinada com serviço de proximidade. Não somos distribuidores transacionais, mas conselheiros técnicos que garantem continuidade operacional à indústria nacional.</p>
+      <p>Até 2036, queremos ser uma referência nacional em soluções adesivas técnicas sustentáveis, não pela quota de mercado, mas pela confiança conquistada. Conhecidos não pelo que vendemos, mas pelo que sabemos.</p>
+      <p class="anchor">Transformamos 70 anos de experiência em inovação de serviço, devolvendo à escolha técnica o valor da sabedoria aplicada.</p>
+    </div>
+  </div>
+</section>
+
+<section id="ativacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">06 · A ativação</div>
+      <h2 class="title">Do papel ao terreno</h2>
+      <p class="lead">A fundação já permite arrancar, sem depender de novo investimento em imagem.</p>
+    </div>
+
+    <div class="subhead">Guia rápido por equipa</div>
+    <div class="deflist">
+      <div class="row"><div class="k">Marketing</div><div class="t">Incorporar o Sábio nas campanhas. Liderar com aconselhamento, fiabilidade e soluções. Falar ao Comprador Pragmático. Evitar clichés e superlativos.</div></div>
+      <div class="row"><div class="k">Vendas</div><div class="t">Abordagem consultiva e orientada ao valor. Responder aos pontos de dor. Construir relação, não transação. Sem venda agressiva nem prometer demais.</div></div>
+      <div class="row"><div class="k">Apoio ao cliente</div><div class="t">Empático e focado na solução. Assumir e resolver, sem culpar nem discutir. Refletir Domínio Técnico e Serviço.</div></div>
+      <div class="row"><div class="k">Liderança</div><div class="t">Comunicar a visão de que existimos para que ninguém pare. Autoridade generosa, ligando cada mensagem ao propósito.</div></div>
+    </div>
+
+    <div class="subhead">O plano de doze meses</div>
+    <div class="grid g3">
+      <div class="card"><div class="n">1–3</div><h3>Ativar a voz</h3><p>Equipa formada. Materiais, propostas e assinaturas na nova voz. Presença no Google tratada. Planear o novo site com a Fullscreen.</p></div>
+      <div class="card"><div class="n">4–6</div><h3>Conteúdo e casos</h3><p>LinkedIn ativo com casos. Primeiros casos reais documentados. Guias para a equipa comercial. Vídeos de aplicação com QR nas amostras.</p></div>
+      <div class="card"><div class="n">7–12</div><h3>Consolidar e preparar</h3><p>SEO, parcerias e medição. Alertas proativos de reposição. E o terreno pronto para a identidade visual quando o orçamento permitir.</p></div>
+    </div>
+
+    <div class="subhead">Exemplos práticos</div>
+    <div class="grid g2">
+      <div class="card"><div class="eyebrow" style="margin-bottom:8px;">Título de página</div><p style="font-style:italic;color:var(--inkSoft);font-size:15px;">Soluções adesivas técnicas para quem não pode parar. Aconselhamento no terreno, forte disponibilidade de stock e entregas rápidas, há 70 anos ao lado da indústria portuguesa.</p></div>
+      <div class="card"><div class="eyebrow" style="margin-bottom:8px;">Post de LinkedIn</div><p style="font-style:italic;color:var(--inkSoft);font-size:15px;">Linha de montagem parada por uma fita que não aguenta 180 graus? Ontem um cliente ligou às 17h30. Esta manhã a equipa estava na fábrica com a alternativa certa. Especificar bem o adesivo evita a paragem, e uma paragem custa sempre mais do que a diferença de preço.</p></div>
+    </div>
+
+    <div class="subhead">Vitórias rápidas</div>
+    <div class="grid g2">
+      <div class="card" style="padding:18px 22px;"><p style="color:var(--inkSoft);font-size:15px;">Perfil de Google Business completo e primeira publicação de LinkedIn com um caso de sucesso.</p></div>
+      <div class="card" style="padding:18px 22px;"><p style="color:var(--inkSoft);font-size:15px;">Fichas técnicas dos produtos mais vendidos, propostas e assinaturas com a nova voz.</p></div>
+      <div class="card" style="padding:18px 22px;"><p style="color:var(--inkSoft);font-size:15px;">Página de corte à medida e três casos de cliente documentados.</p></div>
+      <div class="card" style="padding:18px 22px;"><p style="color:var(--inkSoft);font-size:15px;">Amostras com QR Code que abrem vídeos de aplicação.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--studio);color:var(--cream);padding:56px 0;">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+    <p class="serif" style="font-size:22px;">O <span class="it">saber</span> que mantém tudo em movimento.</p>
+    <p style="font-size:13px;color:var(--stone);">itMatters × TME · Estratégia de Marca · 2026</p>
+  </div>
+</footer>
+
+<script>
+  const links=[...document.querySelectorAll('nav .links a')];
+  const byId=id=>links.find(a=>a.getAttribute('href')==='#'+id);
+  const obs=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.remove('active')); const a=byId(e.target.id); if(a)a.classList.add('active'); }});
+  },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+  document.getElementById('links').addEventListener('click',e=>{ if(e.target.tagName==='A') document.getElementById('links').classList.remove('open'); });
+</script>
+</body>
+</html>
